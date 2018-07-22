@@ -1,0 +1,62 @@
+pasteright v0.1.2 API
+
+This part of documentation covers all the interfaces of Pasteright.
+
+/new_transaction
+http methods: "POST" only
+POST data: json format
+
+json formatted block data turns in
+
+output ".Message", Status
+
+-------------------------------------
+/hash_lookup
+http methods: "POST" only
+POST data: hash value(string)
+
+find related transaction from Hash
+
+output string
+note: output string is Json formatted
+use json.loads(string) to format
+
+-------------------------------------
+/chain
+http methods: "GET"
+POST data: None
+
+return all blocks data on chain
+
+output dict object
+
+-------------------------------------
+/mine
+http methods: "get"
+POST data: None
+
+un-chained transcations mined, new blocks added
+
+output ".Message", Status
+
+-------------------------------------
+/add_nodes
+http methods: "POST" only
+POST data: json format
+
+add friends and peers to Blockchain
+
+output ".Message", Status
+
+--------------------------------------
+/add_block
+http methods: "POST" only
+POST data: json format
+
+turn in and mine transaction in one step
+
+output ".Message", Status
+
+
+
+-------------------------------------

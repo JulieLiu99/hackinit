@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Gallery - PasteRight</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+<nav class="yellow darken-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo black-text">PasteRight Gallery</a>
+    </div>
+</nav>
+<div class="container">
+    {% for item in trans %}
+    <div class="card">
+        <div class="card-image">
+            <img class="activator responsive-img" src="{{ item["url"] }}">
+        </div>
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{ item["uploaded_by"] }}</span>
+            <p><pre class="truncate">{{ item["hash"] }}</pre></p>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large waves-effect waves-light red" href="/upload"><i class="material-icons">cloud_upload</i></a>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="static/js/materialize.js"></script>
+<script src="static/js/init.js"></script>
+<script src="https://unpkg.com/qiniu-js@2.4.0/dist/qiniu.min.js"></script>
+<script>
+    M.AutoInit();
+    document.getElementsByName('username')[0].value = localStorage.getItem('user');
+</script>
+
+</body>
+</html>
